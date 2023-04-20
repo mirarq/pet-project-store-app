@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">StoreAppAgain</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="categories">Categories</string>
+    <string name="favorite">Favorite</string>
+    <string name="myAccount">My Account</string>
+    <string name="basket">Basket</string>
 </resources>

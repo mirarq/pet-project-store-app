@@ -3,10 +3,12 @@ package com.example.storeappagain.model.category_adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.storeappagain.R
 import com.example.storeappagain.databinding.CategoriesItemBinding
 import com.squareup.picasso.Picasso
 
 class CategoriesAdapter: RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder>() {
+
     private var stringList = ArrayList<String>()
     fun setCategoryList(stringList:List<String>){
         this.stringList = stringList as ArrayList<String>
