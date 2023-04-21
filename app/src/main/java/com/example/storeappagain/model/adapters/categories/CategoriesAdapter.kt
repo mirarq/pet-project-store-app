@@ -1,14 +1,12 @@
-package com.example.storeappagain.model.category_adapter
+package com.example.storeappagain.model.adapters.categories
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.storeappagain.R
 import com.example.storeappagain.databinding.CategoriesItemBinding
-import com.squareup.picasso.Picasso
 
 class CategoriesAdapter: RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder>() {
-
+    private var onClickListener: OnClickListener? = null
     private var stringList = ArrayList<String>()
     fun setCategoryList(stringList:List<String>){
         this.stringList = stringList as ArrayList<String>
@@ -29,7 +27,21 @@ class CategoriesAdapter: RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHo
     }
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
-        holder.binding.texViewCategoryName.text = stringList[position]
+        val category = stringList[position]
+        holder.binding.texViewCategoryName.text = category
+        holder.itemView.setOnClickListener {
+            if(onClickListener != null) {
+                onClickListener!!.onClick(position,category)
+            }
+        }
+
+    }
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.onClickListener = onClickListener
     }
 
+    // onClickListener Interface
+    interface OnClickListener {
+        fun onClick(position: Int, category: String)
+    }
 }
