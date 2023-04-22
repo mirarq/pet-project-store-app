@@ -40,7 +40,7 @@ class CategoriesAdapter: RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHo
         this.onClickListener = onClickListener
     }
 
-    // onClickListener Interface
+
     interface OnClickListener {
         fun onClick(position: Int, category: String)
     }

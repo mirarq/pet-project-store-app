@@ -11,6 +11,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CategoriesViewModel: ViewModel() {
+     var favoriteItemsLiveData = MutableLiveData<List<Category>>()
+     var itemSelectedLiveData = MutableLiveData<Category>()
     private var stringLiveData = MutableLiveData<List<String>>()
     private var categoryLiveData = MutableLiveData<List<Category>>()
      var selectedCategoryLiveData = MutableLiveData<String>()
@@ -37,6 +39,7 @@ class CategoriesViewModel: ViewModel() {
     fun observeCategoryLiveData(): LiveData<List<Category>>{
         return categoryLiveData
     }
+
 
 
     fun getSelectedCategory() {
