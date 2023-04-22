@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.example.storeappagain.R
 import com.example.storeappagain.databinding.ActivityMainBinding
 import com.example.storeappagain.model.adapters.categories.CategoriesAdapter
-import com.example.storeappagain.model.viewmodel.CategoriesViewModel
+import com.example.storeappagain.viewmodel.CategoriesViewModel
 import com.example.storeappagain.view.mainfragment.MainFragment
 
 class MainActivity : AppCompatActivity() {
