@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.itemfragment.ItemFragment">
+
+    <ImageView
+        android:id="@+id/imageViewItemImage"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewItemTitle"
+        android:layout_width="340dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/alata"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewItemImage"
+        app:layout_constraintStart_toStartOf="@+id/imageViewItemImage"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewItemImage" />
+
+    <TextView
+        android:id="@+id/textViewItemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="3dp"
+        android:fontFamily="@font/alata"
+        android:text="695.00$"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewItemDescription"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemDescription" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
+        android:text="Price:"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemPrice"
+        app:layout_constraintEnd_toStartOf="@+id/textViewItemPrice"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPrice" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/alata"
+        android:text="Add to favorite list"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewAddToFavorite"
+        app:layout_constraintStart_toEndOf="@+id/imageViewAddToFavorite"
+        app:layout_constraintTop_toTopOf="@+id/imageViewAddToFavorite" />
+
+    <ImageView
+        android:id="@+id/imageViewAddToFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:src="@drawable/baseline_star_outline_24"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemDescription"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemDescription" />
+
+    <TextView
+        android:id="@+id/textViewItemDescription"
+        android:layout_width="320dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/alata"
+        android:text="Description"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewItemTitle"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemTitle" />
+
+    <Button
+        android:id="@+id/buttonItemAddToBasket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/alata"
+        android:text="Add to basket"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/textViewItemDescription"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemDescription"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
