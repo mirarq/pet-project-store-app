@@ -1,5 +1,8 @@
 package com.example.storeappagain.model.datacllasses
 
+import androidx.room.Entity
+
+@Entity("favorite_table")
 data class Category(
     val id: Int,
     val title: String,

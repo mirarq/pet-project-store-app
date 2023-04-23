@@ -55,7 +55,7 @@
         app:layout_constraintTop_toTopOf="@+id/textViewItemPrice" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textViewAddToFavoriteList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -93,12 +93,25 @@
         android:id="@+id/buttonItemAddToBasket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/alata"
         android:text="Add to basket"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/textViewItemDescription"
         app:layout_constraintStart_toStartOf="@+id/textViewItemDescription"
         app:layout_constraintTop_toBottomOf="@+id/textViewItemDescription" />
+
+    <Button
+        android:id="@+id/buttonBuyNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/alata"
+        android:text="Buy Now"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonItemAddToBasket"
+        app:layout_constraintEnd_toEndOf="@+id/textViewItemDescription"
+        app:layout_constraintStart_toEndOf="@+id/buttonItemAddToBasket"
+        app:layout_constraintTop_toTopOf="@+id/buttonItemAddToBasket" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

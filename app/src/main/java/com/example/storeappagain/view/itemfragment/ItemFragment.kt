@@ -5,10 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import com.example.storeappagain.R
 import com.example.storeappagain.databinding.FragmentItemBinding
 import com.example.storeappagain.model.datacllasses.Category
+import com.example.storeappagain.model.room.repository.FavoriteRepository
+import com.example.storeappagain.viewmodel.BuyViewModel
 import com.example.storeappagain.viewmodel.CategoriesViewModel
 import com.squareup.picasso.Picasso
 
@@ -16,8 +19,10 @@ import com.squareup.picasso.Picasso
 
 
 class ItemFragment : Fragment() {
+    private val favoriteRepository = context?.let { FavoriteRepository(it.applicationContext) }
     private lateinit var binding: FragmentItemBinding
     private val categoriesViewModel: CategoriesViewModel by activityViewModels()
+    private val buyNowViewModel: BuyViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,6 +36,7 @@ class ItemFragment : Fragment() {
         categoriesViewModel.itemSelectedLiveData.observe(viewLifecycleOwner){item ->
             bind(item)
             addToFavorite(item)
+            buyNow(item)
         }
     }
 
@@ -41,8 +47,28 @@ class ItemFragment : Fragment() {
         textViewItemPrice.text = "${item.price}$"
     }
     private fun addToFavorite(item: Category) = with(binding) {
+        var countClicks = 1
         imageViewAddToFavorite.setOnClickListener {
-            categoriesViewModel.favoriteItemsLiveData.value = listOf(item)
+            if(countClicks % 2 == 0) {
+                favoriteRepository?.insertItem(item)
+                textViewAddToFavoriteList.isVisible = false
+            imageViewAddToFavorite.setImageResource(R.drawable.baseline_star_24)
+
+            countClicks+= 1
+                } else {
+                    favoriteRepository?.deleteItem(item)
+                    textViewAddToFavoriteList.isVisible = true
+                    imageViewAddToFavorite.setImageResource(R.drawable.baseline_star_outline_24)
+                countClicks += 1
+            }
+
+        }
+    }
+
+    private fun buyNow(item: Category) = with(binding) {
+        buttonBuyNow.setOnClickListener {
+            buyNowViewModel.buyNowLiveData.value = item
+            // make new activity for this!!!!! LATER
         }
     }
     companion object {
