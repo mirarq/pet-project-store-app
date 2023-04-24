@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.buynowfragment.BuyNowFragment">
+    <ImageView
+        android:id="@+id/imageViewItemImageBuyNow"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewItemTitleBuyNow"
+        android:layout_width="340dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/alata"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewItemImageBuyNow"
+        app:layout_constraintStart_toStartOf="@+id/imageViewItemImageBuyNow"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewItemImageBuyNow" />
+
+    <TextView
+        android:id="@+id/textViewItemPriceBuyNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
+        android:text="695.00$"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewItemTitleBuyNow"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemTitleBuyNow"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemTitleBuyNow" />
+
+    <TextView
+        android:id="@+id/textView6BuyNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alata"
+        android:text="Price:"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemPriceBuyNow"
+        app:layout_constraintEnd_toStartOf="@+id/textViewItemPriceBuyNow"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPriceBuyNow" />
+
+    <Button
+        android:id="@+id/buttonBuyNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:fontFamily="@font/alata"
+        android:text="Buy Now"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewItemTitleBuyNow"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemTitleBuyNow"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemPriceBuyNow" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

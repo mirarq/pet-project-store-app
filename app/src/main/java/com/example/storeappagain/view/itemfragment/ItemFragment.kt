@@ -10,16 +10,13 @@ import androidx.fragment.app.activityViewModels
 import com.example.storeappagain.R
 import com.example.storeappagain.databinding.FragmentItemBinding
 import com.example.storeappagain.model.datacllasses.Category
-import com.example.storeappagain.model.room.repository.FavoriteRepository
+import com.example.storeappagain.view.buynowfragment.BuyNowFragment
 import com.example.storeappagain.viewmodel.BuyViewModel
 import com.example.storeappagain.viewmodel.CategoriesViewModel
 import com.squareup.picasso.Picasso
 
 
-
-
 class ItemFragment : Fragment() {
-    private val favoriteRepository = context?.let { FavoriteRepository(it.applicationContext) }
     private lateinit var binding: FragmentItemBinding
     private val categoriesViewModel: CategoriesViewModel by activityViewModels()
     private val buyNowViewModel: BuyViewModel by activityViewModels()
@@ -27,13 +24,13 @@ class ItemFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentItemBinding.inflate(inflater,container,false)
+        binding = FragmentItemBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        categoriesViewModel.itemSelectedLiveData.observe(viewLifecycleOwner){item ->
+        categoriesViewModel.itemSelectedLiveData.observe(viewLifecycleOwner) { item ->
             bind(item)
             addToFavorite(item)
             buyNow(item)
@@ -46,19 +43,18 @@ class ItemFragment : Fragment() {
         textViewItemDescription.text = item.description
         textViewItemPrice.text = "${item.price}$"
     }
+
     private fun addToFavorite(item: Category) = with(binding) {
         var countClicks = 1
         imageViewAddToFavorite.setOnClickListener {
-            if(countClicks % 2 == 0) {
-                favoriteRepository?.insertItem(item)
+            if (countClicks % 2 == 0) {
                 textViewAddToFavoriteList.isVisible = false
-            imageViewAddToFavorite.setImageResource(R.drawable.baseline_star_24)
+                imageViewAddToFavorite.setImageResource(R.drawable.baseline_star_24)
 
-            countClicks+= 1
-                } else {
-                    favoriteRepository?.deleteItem(item)
-                    textViewAddToFavoriteList.isVisible = true
-                    imageViewAddToFavorite.setImageResource(R.drawable.baseline_star_outline_24)
+                countClicks += 1
+            } else {
+                textViewAddToFavoriteList.isVisible = true
+                imageViewAddToFavorite.setImageResource(R.drawable.baseline_star_outline_24)
                 countClicks += 1
             }
 
@@ -66,11 +62,17 @@ class ItemFragment : Fragment() {
     }
 
     private fun buyNow(item: Category) = with(binding) {
-        buttonBuyNow.setOnClickListener {
+        buttonBuyNowItem.setOnClickListener {
             buyNowViewModel.buyNowLiveData.value = item
-            // make new activity for this!!!!! LATER
+            val buyNowFragment = BuyNowFragment()
+            val fragmentManager = parentFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.frame,buyNowFragment)
+            fragmentTransaction.addToBackStack("selectedCategory")
+            fragmentTransaction.commit()
         }
     }
+
     companion object {
 
         @JvmStatic
