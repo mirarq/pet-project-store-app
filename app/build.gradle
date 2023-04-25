@@ -63,9 +63,10 @@ dependencies {
 
     implementation 'androidx.fragment:fragment-ktx:1.5.7'
 
-    implementation("androidx.room:room-runtime:2.5.1")
-    annotationProcessor("androidx.room:room-compiler:2.5.1")
-
+    implementation 'androidx.room:room-runtime:2.5.1'
+    annotationProcessor 'androidx.room:room-compiler:2.5.1'
+// add below dependency for using lifecycle extensions for room.
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
     // Image view
     implementation 'com.squareup.picasso:picasso:2.71828'

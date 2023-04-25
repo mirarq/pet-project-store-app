@@ -24,16 +24,19 @@ class ItemFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentItemBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         categoriesViewModel.itemSelectedLiveData.observe(viewLifecycleOwner) { item ->
             bind(item)
-            addToFavorite(item)
             buyNow(item)
+            addToFavorite(item)
         }
     }
 
@@ -50,7 +53,6 @@ class ItemFragment : Fragment() {
             if (countClicks % 2 == 0) {
                 textViewAddToFavoriteList.isVisible = false
                 imageViewAddToFavorite.setImageResource(R.drawable.baseline_star_24)
-
                 countClicks += 1
             } else {
                 textViewAddToFavoriteList.isVisible = true
@@ -60,7 +62,6 @@ class ItemFragment : Fragment() {
 
         }
     }
-
     private fun buyNow(item: Category) = with(binding) {
         buttonBuyNowItem.setOnClickListener {
             buyNowViewModel.buyNowLiveData.value = item
@@ -72,6 +73,8 @@ class ItemFragment : Fragment() {
             fragmentTransaction.commit()
         }
     }
+
+
 
     companion object {
 

@@ -1,6 +1,5 @@
 package com.example.storeappagain.model.datacllasses
 
-
 data class Category(
     val id: Int,
     val title: String,
@@ -8,5 +7,6 @@ data class Category(
     val category: String,
     val description: String,
     val image: String,
-    val rating: Rating
+    val rating: Rating,
 )
+
