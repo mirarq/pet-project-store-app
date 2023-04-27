@@ -34,7 +34,7 @@ class SelectedCategoryAdapter:
             with(binding){
                 textViewTitleRV.text = item.title
                 textViewPriceRV.text = "${item.price}$"
-                textViewRatingRateRV.text = item.rating.rate.toString()
+                textViewRatingRateRV.text = item.rating?.rate.toString()
                 Picasso.get().load(item.image).into(imageViewIconInRV)
             }
             itemView.setOnClickListener {

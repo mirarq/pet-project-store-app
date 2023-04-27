@@ -1,25 +1,32 @@
 package com.example.storeappagain.view.itemfragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import com.example.storeappagain.R
 import com.example.storeappagain.databinding.FragmentItemBinding
 import com.example.storeappagain.model.datacllasses.Category
+import com.example.storeappagain.model.room.FavoriteApplication
 import com.example.storeappagain.view.buynowfragment.BuyNowFragment
 import com.example.storeappagain.viewmodel.BuyViewModel
 import com.example.storeappagain.viewmodel.CategoriesViewModel
+import com.example.storeappagain.viewmodel.FavoriteViewModel
+import com.example.storeappagain.viewmodel.FavoriteViewModelFactory
 import com.squareup.picasso.Picasso
-
-
 class ItemFragment : Fragment() {
     private lateinit var binding: FragmentItemBinding
     private val categoriesViewModel: CategoriesViewModel by activityViewModels()
     private val buyNowViewModel: BuyViewModel by activityViewModels()
+    private val newFavoriteActivityRequestCode = 1
+    private val favoriteViewModel: FavoriteViewModel by viewModels {
+        FavoriteViewModelFactory((activity?.application as FavoriteApplication).repository)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,9 +36,9 @@ class ItemFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         categoriesViewModel.itemSelectedLiveData.observe(viewLifecycleOwner) { item ->
             bind(item)
@@ -51,10 +58,12 @@ class ItemFragment : Fragment() {
         var countClicks = 1
         imageViewAddToFavorite.setOnClickListener {
             if (countClicks % 2 == 0) {
+                favoriteViewModel.insertFavorite(item)
                 textViewAddToFavoriteList.isVisible = false
                 imageViewAddToFavorite.setImageResource(R.drawable.baseline_star_24)
                 countClicks += 1
             } else {
+                favoriteViewModel.deleteFavorite(item)
                 textViewAddToFavoriteList.isVisible = true
                 imageViewAddToFavorite.setImageResource(R.drawable.baseline_star_outline_24)
                 countClicks += 1
@@ -68,11 +77,12 @@ class ItemFragment : Fragment() {
             val buyNowFragment = BuyNowFragment()
             val fragmentManager = parentFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.frame,buyNowFragment)
+            fragmentTransaction.replace(R.id.container,buyNowFragment)
             fragmentTransaction.addToBackStack("selectedCategory")
             fragmentTransaction.commit()
         }
     }
+
 
 
 

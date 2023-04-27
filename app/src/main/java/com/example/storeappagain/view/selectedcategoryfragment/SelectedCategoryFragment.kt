@@ -56,7 +56,7 @@ class SelectedCategoryFragment : Fragment() {
                     val itemFragment = ItemFragment()
                     val fragmentManager = parentFragmentManager
                     val fragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.replace(R.id.frame,itemFragment)
+                    fragmentTransaction.replace(R.id.container,itemFragment)
                     fragmentTransaction.addToBackStack("selectedCategory")
                     fragmentTransaction.commit()
             }

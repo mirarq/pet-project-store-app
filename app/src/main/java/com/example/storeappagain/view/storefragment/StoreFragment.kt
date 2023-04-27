@@ -18,7 +18,7 @@ class StoreFragment : Fragment() {
     ): View? {
         binding = FragmentStoreBinding.inflate(inflater,container,false)
         val fragmentManager = requireActivity().supportFragmentManager
-        fragmentManager.beginTransaction().replace(R.id.frame,CategoryFragment()).commit()
+        fragmentManager.beginTransaction().replace(R.id.container,CategoryFragment()).commit()
         return binding.root
     }
 
