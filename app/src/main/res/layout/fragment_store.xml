@@ -4,6 +4,6 @@
     android:id="@+id/frame"
     android:layout_width="match_parent"
     android:layout_height="650dp"
-    tools:context=".view.storefragment.StoreFragment">
+    tools:context=".view.main.storefragment.StoreFragment">
 
 </FrameLayout>

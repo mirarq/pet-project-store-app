@@ -1,4 +1,4 @@
-package com.example.storeappagain.view
+package com.example.storeappagain.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,13 +6,11 @@ import androidx.fragment.app.Fragment
 import com.example.storeappagain.R
 import com.example.storeappagain.databinding.ActivityMainBinding
 import com.example.storeappagain.model.adapters.categories.CategoriesAdapter
-import com.example.storeappagain.view.basketfragment.BasketFragment
-import com.example.storeappagain.view.categoryfragment.CategoryFragment
-import com.example.storeappagain.view.favoritesfragment.FavoritesFragment
+import com.example.storeappagain.view.main.basketfragment.BasketFragment
+import com.example.storeappagain.view.main.favoritesfragment.FavoritesFragment
 import com.example.storeappagain.viewmodel.CategoriesViewModel
-import com.example.storeappagain.view.myaccountfragment.MyAccountFragment
-import com.example.storeappagain.view.storefragment.StoreFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.storeappagain.view.main.myaccountfragment.MyAccountFragment
+import com.example.storeappagain.view.main.storefragment.StoreFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

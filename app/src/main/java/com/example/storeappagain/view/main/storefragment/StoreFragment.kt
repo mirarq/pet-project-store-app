@@ -1,4 +1,4 @@
-package com.example.storeappagain.view.storefragment
+package com.example.storeappagain.view.main.storefragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.storeappagain.R
 import com.example.storeappagain.databinding.FragmentStoreBinding
-import com.example.storeappagain.view.categoryfragment.CategoryFragment
+import com.example.storeappagain.view.main.categoryfragment.CategoryFragment
 
 
 class StoreFragment : Fragment() {
@@ -18,7 +18,7 @@ class StoreFragment : Fragment() {
     ): View? {
         binding = FragmentStoreBinding.inflate(inflater,container,false)
         val fragmentManager = requireActivity().supportFragmentManager
-        fragmentManager.beginTransaction().replace(R.id.container,CategoryFragment()).commit()
+        fragmentManager.beginTransaction().replace(R.id.container, CategoryFragment()).commit()
         return binding.root
     }
 

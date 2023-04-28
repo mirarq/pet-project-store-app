@@ -1,6 +1,5 @@
-package com.example.storeappagain.view.selectedcategoryfragment
+package com.example.storeappagain.view.main.selectedcategoryfragment
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,7 +11,7 @@ import com.example.storeappagain.R
 import com.example.storeappagain.databinding.FragmentSelectedCategoryBinding
 import com.example.storeappagain.model.adapters.selectedcategory.SelectedCategoryAdapter
 import com.example.storeappagain.model.datacllasses.Category
-import com.example.storeappagain.view.itemfragment.ItemFragment
+import com.example.storeappagain.view.main.itemfragment.ItemFragment
 import com.example.storeappagain.viewmodel.CategoriesViewModel
 
 class SelectedCategoryFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.example.storeappagain.view.buynowfragment
+package com.example.storeappagain.view.main.buynowfragment
 
 import android.app.AlertDialog
 import android.content.Context

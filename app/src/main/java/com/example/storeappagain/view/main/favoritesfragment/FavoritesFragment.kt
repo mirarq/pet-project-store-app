@@ -1,4 +1,4 @@
-package com.example.storeappagain.view.favoritesfragment
+package com.example.storeappagain.view.main.favoritesfragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,17 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.storeappagain.R
 import com.example.storeappagain.databinding.FragmentFavoritesBinding
 import com.example.storeappagain.model.adapters.favorite.FavoriteAdapter
-import com.example.storeappagain.model.adapters.selectedcategory.SelectedCategoryAdapter
 import com.example.storeappagain.model.datacllasses.Category
 import com.example.storeappagain.model.room.FavoriteApplication
-import com.example.storeappagain.view.itemfragment.ItemFragment
+import com.example.storeappagain.view.main.itemfragment.ItemFragment
 import com.example.storeappagain.viewmodel.CategoriesViewModel
 import com.example.storeappagain.viewmodel.FavoriteViewModel
 import com.example.storeappagain.viewmodel.FavoriteViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 
 
 class FavoritesFragment : Fragment() {
@@ -40,9 +42,34 @@ class FavoritesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         prepareRv()
-        activity?.let {
-            favoriteViewModel.allFavorites.observe(viewLifecycleOwner) {favoriteList ->
-                favoriteAdapter.setFavoriteList(favoriteList)
+        with(binding) {
+            activity?.let {
+                favoriteViewModel.allFavorites.observe(viewLifecycleOwner) { favoriteList ->
+                    favoriteAdapter.setFavoriteList(favoriteList)
+                    ItemTouchHelper(object :
+                        ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+                        override fun onMove(
+                            recyclerView: RecyclerView,
+                            viewHolder: RecyclerView.ViewHolder,
+                            target: RecyclerView.ViewHolder
+                        ): Boolean {
+                            return false
+                        }
+
+                        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                            val deleteFavorite = favoriteList[viewHolder.adapterPosition]
+                            val position = viewHolder.adapterPosition
+                            favoriteViewModel.deleteFavorite(deleteFavorite)
+                            Snackbar.make(recyclerViewFavorite,"Deleted" + deleteFavorite.title,
+                            Snackbar.LENGTH_LONG).setAction(
+                                "Undo",
+                                View.OnClickListener {
+                                    favoriteViewModel.insertFavorite(deleteFavorite)
+                                }).show()
+                        }
+
+                    }).attachToRecyclerView(recyclerViewFavorite)
+                }
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.example.storeappagain.view.categoryfragment
+package com.example.storeappagain.view.main.categoryfragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,7 +11,7 @@ import com.example.storeappagain.R
 import com.example.storeappagain.databinding.FragmentCategoryBinding
 import com.example.storeappagain.model.adapters.categories.CategoriesAdapter
 import com.example.storeappagain.viewmodel.CategoriesViewModel
-import com.example.storeappagain.view.selectedcategoryfragment.SelectedCategoryFragment
+import com.example.storeappagain.view.main.selectedcategoryfragment.SelectedCategoryFragment
 
 
 class CategoryFragment : Fragment() {

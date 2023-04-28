@@ -1,7 +1,6 @@
-package com.example.storeappagain.view.itemfragment
+package com.example.storeappagain.view.main.itemfragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,7 @@ import com.example.storeappagain.R
 import com.example.storeappagain.databinding.FragmentItemBinding
 import com.example.storeappagain.model.datacllasses.Category
 import com.example.storeappagain.model.room.FavoriteApplication
-import com.example.storeappagain.view.buynowfragment.BuyNowFragment
+import com.example.storeappagain.view.main.buynowfragment.BuyNowFragment
 import com.example.storeappagain.viewmodel.BuyViewModel
 import com.example.storeappagain.viewmodel.CategoriesViewModel
 import com.example.storeappagain.viewmodel.FavoriteViewModel

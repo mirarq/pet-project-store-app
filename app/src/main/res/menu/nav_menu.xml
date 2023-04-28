@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/categories"
-        android:icon="@drawable/baseline_star_24"
+        android:icon="@drawable/baseline_shopping_basket_24"
         android:title="Shop"/>
     <item
         android:id="@+id/favorite"
@@ -10,11 +10,11 @@
         android:title="Favorite"/>
     <item
         android:id="@+id/myAccount"
-        android:icon="@drawable/baseline_star_24"
+        android:icon="@drawable/baseline_account_circle_24"
         android:title="My Account"/>
     <item
         android:id="@+id/basket"
-        android:icon="@drawable/baseline_star_24"
+        android:icon="@drawable/baseline_delete_24"
         android:title="Basket"/>
 
 </menu>

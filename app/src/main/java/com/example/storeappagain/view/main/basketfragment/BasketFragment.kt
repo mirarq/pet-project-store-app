@@ -1,4 +1,4 @@
-package com.example.storeappagain.view.myaccountfragment
+package com.example.storeappagain.view.main.basketfragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.storeappagain.R
 
 
-class MyAccountFragment : Fragment() {
+class BasketFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -16,12 +16,12 @@ class MyAccountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_account, container, false)
+        return inflater.inflate(R.layout.fragment_basket, container, false)
     }
 
     companion object {
 
         @JvmStatic
-        fun newInstance() = MyAccountFragment()
+        fun newInstance() = BasketFragment()
     }
 }
